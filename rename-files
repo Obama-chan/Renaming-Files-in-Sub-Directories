@@ -1,0 +1,6 @@
+cd [Root Directory] #Put File Path for root directory holding the files that need to be renamed
+Get-ChildItem -File -Recurse | % { Rename-Item -Path $_.PSPath -NewName $_.Name.Replace("-"," ")} 
+
+#Recursive function to rename files based on the listed criteria. 
+#If you have multiple things to chnage with the filename you can add more Repalce() 
+#EX: Get-ChildItem -File -Recurse | % { Rename-Item -Path $_.PSPath -NewName $_.Name.Replace("-"," ").Replace("_"," ").Replace("3200x","")}
